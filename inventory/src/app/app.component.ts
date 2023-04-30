@@ -77,4 +77,8 @@ export class AppComponent {
   getEstadoProducto(estado: boolean): string {
     return estado ? 'Activo' : 'Inactivo';
   }
+
+  editarProducto(producto: Producto) {
+    console.log(producto);
+  }
 }
