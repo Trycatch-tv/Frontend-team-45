@@ -39,6 +39,18 @@
         [(ngModel)]="producto.costo"
       />
     </div>
+    <div class="form-group custom-checkbox">
+      <div class="form-check">
+        <label class="form-check-label" for="estado">Estado:</label>
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="estado"
+          name="estado"
+          [(ngModel)]="producto.estado"
+        />
+      </div>
+    </div>
     <button
       type="submit"
       class="btn btn-primary mt-3"
@@ -58,6 +70,7 @@
         <th scope="col">Precio de venta</th>
         <th scope="col">Costo</th>
         <th scope="col">Estado</th>
+        <th scope="col">Editar/Eliminar</th>
       </tr>
     </thead>
     <tbody>
@@ -66,7 +79,12 @@
         <td>{{ producto.descripcion }}</td>
         <td>{{ producto.precioVenta }}</td>
         <td>{{ producto.costo }}</td>
-        <td>{{ producto.estado ? "Activo" : "Inactivo" }}</td>
+        <td>{{ getEstadoProducto(producto.estado) }}</td>
+        <td>
+          <button class="btn btn-primary" (click)="eliminarProducto(producto)">
+            Eliminar
+          </button>
+        </td>
       </tr>
     </tbody>
   </table>
