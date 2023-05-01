@@ -87,11 +87,111 @@
           >
             Eliminar
           </button>
-          <button class="btn btn-primary" (click)="editarProducto(producto)">
+          <button
+            class="btn btn-primary"
+            (click)="editarProducto(producto)"
+            type="button"
+            class="btn btn-primary"
+            data-toggle="modal"
+            data-target="#exampleModal"
+          >
             Editar
           </button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar producto</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombre">Nombre:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              name="nombre"
+              [(ngModel)]="productoSeleccionado.nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            <textarea
+              class="form-control"
+              id="descripcion"
+              name="descripcion"
+              [(ngModel)]="productoSeleccionado.descripcion"
+            ></textarea>
+          </div>
+          <div class="form-group">
+            <label for="precioVenta">Precio de venta:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="precioVenta"
+              name="precioVenta"
+              [(ngModel)]="productoSeleccionado.precioVenta"
+            />
+          </div>
+          <div class="form-group">
+            <label for="costo">Costo:</label>
+            <input
+              type="number"
+              class="form-control"
+              id="costo"
+              name="costo"
+              [(ngModel)]="productoSeleccionado.costo"
+            />
+          </div>
+          <div class="form-group custom-checkbox">
+            <div class="form-check">
+              <label class="form-check-label" for="estado">Estado:</label>
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="estado"
+                name="estado"
+                [(ngModel)]="productoSeleccionado.estado"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Cancelar
+        </button>
+        <button
+          type="button"
+          class="btn btn-primary"
+          (click)="guardarCambios()"
+        >
+          Guardar cambios
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
