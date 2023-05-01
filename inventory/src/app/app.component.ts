@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 export interface Producto {
   id?: number;
@@ -16,7 +17,20 @@ export interface Producto {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+  // productos: Producto[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit() {
+    // this.http
+    //   .get<Producto[]>(
+    //     'https://inventarios-wsxt.onrender.com/api/producto/listar'
+    //   )
+    //   .subscribe((data) => {
+    //     this.productos = data;
+    //   });
+  }
   productoSeleccionado: Producto = {
     nombre: '',
     descripcion: '',
